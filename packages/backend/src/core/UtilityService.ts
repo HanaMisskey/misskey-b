@@ -6,7 +6,7 @@
 import { URL } from 'node:url';
 import { toASCII } from 'punycode';
 import { Inject, Injectable } from '@nestjs/common';
-import RE2 from 're2';
+import RE2 from 're2-wasm';
 import { DI } from '@/di-symbols.js';
 import type { Config } from '@/config.js';
 import { bindThis } from '@/decorators.js';

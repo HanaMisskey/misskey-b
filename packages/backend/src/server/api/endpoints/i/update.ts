@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-import RE2 from 're2';
+import RE2 from 're2-wasm';
 import * as mfm from 'mfm-js';
 import { Inject, Injectable } from '@nestjs/common';
 import ms from 'ms';
