@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-import RE2 from 're2';
+import RE2 from 're2-wasm';
 
 export class convertHardMutes1644010796173 {
     name = 'convertHardMutes1644010796173'

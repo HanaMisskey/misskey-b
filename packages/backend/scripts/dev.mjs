@@ -9,7 +9,7 @@ import { execa, execaNode } from 'execa';
 let backendProcess;
 
 async function execBuildAssets() {
-	await execa('pnpm', ['run', 'build-assets'], {
+	await execa('bun', ['build-assets'], {
 		cwd: '../../',
 		stdout: process.stdout,
 		stderr: process.stderr,
@@ -38,6 +38,8 @@ async function killProc() {
 }
 
 (async () => {
+	execa('bun', ['--watch', './src/boot/entry.ts']);
+/*
 	execaNode(
 		'./node_modules/nodemon/bin/nodemon.js',
 		[
@@ -60,4 +62,5 @@ async function killProc() {
 				execStart();
 			}
 		})
+*/
 })();

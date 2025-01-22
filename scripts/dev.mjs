@@ -10,24 +10,24 @@ import { execa } from 'execa';
 const _filename = fileURLToPath(import.meta.url);
 const _dirname = dirname(_filename);
 
-await execa('pnpm', ['clean'], {
+await execa('bun', ['clean'], {
 	cwd: _dirname + '/../',
 	stdout: process.stdout,
 	stderr: process.stderr,
 });
 
 await Promise.all([
-	execa('pnpm', ['build-pre'], {
+	execa('bun', ['build-pre'], {
 		cwd: _dirname + '/../',
 		stdout: process.stdout,
 		stderr: process.stderr,
 	}),
-	execa('pnpm', ['build-assets'], {
+	execa('bun', ['build-assets'], {
 		cwd: _dirname + '/../',
 		stdout: process.stdout,
 		stderr: process.stderr,
 	}),
-	execa('pnpm', ['--filter', 'misskey-js', 'build'], {
+	execa('bun', ['--filter', 'misskey-js', 'build'], {
 		cwd: _dirname + '/../',
 		stdout: process.stdout,
 		stderr: process.stderr,
@@ -35,62 +35,64 @@ await Promise.all([
 ]);
 
 await Promise.all([
-	execa('pnpm', ['--filter', 'misskey-reversi', 'build'], {
+	execa('bun', ['--filter', 'misskey-reversi', 'build'], {
 		cwd: _dirname + '/../',
 		stdout: process.stdout,
 		stderr: process.stderr,
 	}),
-	execa('pnpm', ['--filter', 'misskey-bubble-game', 'build'], {
+	execa('bun', ['--filter', 'misskey-bubble-game', 'build'], {
 		cwd: _dirname + '/../',
 		stdout: process.stdout,
 		stderr: process.stderr,
 	}),
 ]);
 
-execa('pnpm', ['build-pre', '--watch'], {
+execa('bun', ['build-pre', '--watch'], {
 	cwd: _dirname + '/../',
 	stdout: process.stdout,
 	stderr: process.stderr,
 });
 
-execa('pnpm', ['build-assets', '--watch'], {
+execa('bun', ['build-assets', '--watch'], {
 	cwd: _dirname + '/../',
 	stdout: process.stdout,
 	stderr: process.stderr,
 });
 
-execa('pnpm', ['--filter', 'backend', 'dev'], {
+execa('bun', ['--filter', 'backend', 'dev'], {
 	cwd: _dirname + '/../',
 	stdout: process.stdout,
 	stderr: process.stderr,
 });
 
-execa('pnpm', ['--filter', 'frontend', process.env.MK_DEV_PREFER === 'backend' ? 'watch' : 'dev'], {
+execa('bun', ['--filter', 'frontend', process.env.MK_DEV_PREFER === 'backend' ? 'watch' : 'dev'], {
 	cwd: _dirname + '/../',
 	stdout: process.stdout,
 	stderr: process.stderr,
 });
 
-execa('pnpm', ['--filter', 'sw', 'watch'], {
+/*
+execa('bun', ['--filter', 'sw', 'watch'], {
 	cwd: _dirname + '/../',
 	stdout: process.stdout,
 	stderr: process.stderr,
 });
 
-execa('pnpm', ['--filter', 'misskey-js', 'watch'], {
+execa('bun', ['--filter', 'misskey-js', 'watch'], {
 	cwd: _dirname + '/../',
 	stdout: process.stdout,
 	stderr: process.stderr,
 });
 
-execa('pnpm', ['--filter', 'misskey-reversi', 'watch'], {
+execa('bun', ['--filter', 'misskey-reversi', 'watch'], {
 	cwd: _dirname + '/../',
 	stdout: process.stdout,
 	stderr: process.stderr,
 });
 
-execa('pnpm', ['--filter', 'misskey-bubble-game', 'watch'], {
+execa('bun', ['--filter', 'misskey-bubble-game', 'watch'], {
 	cwd: _dirname + '/../',
 	stdout: process.stdout,
 	stderr: process.stderr,
 });
+*/
