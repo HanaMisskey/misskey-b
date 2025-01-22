@@ -20,7 +20,7 @@
 	"scripts": {
 		"build-pre": "bun ./scripts/build-pre.js",
 		"build-assets": "bun ./scripts/build-assets.mjs",
-		"build": "bun build-pre && bun -r build && bun build-assets",
+		"build": "bun build-pre && bun run --filter '*' build && bun build-assets",
 		"build-storybook": "bun --filter frontend build-storybook",
 		"build-misskey-js-with-types": "pnpm build-pre && pnpm --filter backend... --filter=!misskey-js build && pnpm --filter backend generate-api-json --no-build && ncp packages/backend/built/api.json packages/misskey-js/generator/api.json && pnpm --filter misskey-js update-autogen-code && pnpm --filter misskey-js build && pnpm --filter misskey-js api",
 		"start": "bun check:connect && cd packages/backend && bun ./built/src/entry.ts",
